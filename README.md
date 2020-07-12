@@ -52,3 +52,18 @@ React用可变的方式暴露组件的状态（通过`setState`进行改变）�
 * this.state
 
 this引用的是类的实例，而state则是一个React会进行追踪的特殊属性。
+
+* setState API
+
+setState接收一个用来设置组件新状态的函数以及一个可选的回调函数。
+
+```jsx
+setState(
+  updater,    // (prevState, props) => stateChange
+  [callback]
+) -> void
+```
+
+React的全面声明性异步范式：容许系统（React）`安排更新`，保证顺序但不保证时间。
+
+setState会使用updater函数返回的对象与当前状态进行浅合并。
