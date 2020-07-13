@@ -68,7 +68,43 @@ class ShallowMerge extends React.Component {
   }
 }
 
+class Counter extends React.Component {
+  // 属性类型检查
+  static propTypes = {
+    incrementBy: PropTypes.number,
+    onIncrement: PropTypes.func.isRequired
+  };
+
+  // 默认属性
+  static defaultProps = {
+    incrementBy: 1
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+    this.onButtonClick = this.onButtonClick.bind(this);
+  }
+
+  onButtonClick() {
+    this.setState(function(prevState, props) {
+      return { count: prevState.count + props.incrementBy };
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.count}</h1>
+        <button onClick={this.onButtonClick}>++</button>
+      </div>
+    )
+  }
+}
+
 ReactDOM.render(
-  <ShallowMerge />,                // 顶层组件
+  <Counter />,                // 顶层组件
   document.getElementById('root')  // 应用最高层的HTML元素
 );

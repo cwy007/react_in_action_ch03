@@ -14,6 +14,7 @@ browser-sync start --server --browser "Google Chrome" --files "stylesheets/*.css
 
 * 当谈及“状态”时，我们究竟讨论的是什么？
 * 如何描述应用在某个时刻的状态？
+* 为什么这是一个问题而且为什么那样做行不通呢？
 
 ## 概念
 
@@ -67,3 +68,11 @@ setState(
 React的全面声明性异步范式：容许系统（React）`安排更新`，保证顺序但不保证时间。
 
 setState会使用updater函数返回的对象与当前状态进行浅合并。
+
+* defaultProps
+
+组件自身的defaultProps静态方法
+
+属性可以随时间改变，但不是从组建内部改变。
+
+一个使用状态的父组件（继承自React.Component）可以改变自己的状态，这个改变的状态可以作为属性传递给子组件，从而改变属性。
