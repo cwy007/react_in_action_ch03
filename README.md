@@ -76,3 +76,16 @@ setState会使用updater函数返回的对象与当前状态进行浅合并。
 属性可以随时间改变，但不是从组建内部改变。
 
 一个使用状态的父组件（继承自React.Component）可以改变自己的状态，这个改变的状态可以作为属性传递给子组件，从而改变属性。
+
+```jsx
+// 属性类型检查
+static propTypes = {
+  incrementBy: PropTypes.number,
+  onIncrement: PropTypes.func.isRequired
+};
+
+// 默认属性
+static defaultProps = {
+  incrementBy: 1
+};
+```

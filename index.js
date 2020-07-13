@@ -104,7 +104,20 @@ class Counter extends React.Component {
   }
 }
 
+// 无状态函数组件
+function Greeting(props) {
+  return <div>Hello {props.for}!</div>;
+}
+
+Greeting.propTypes = {
+  for: PropTypes.string.isRequired
+};
+
+Greeting.defaultProps = {
+  for: 'friend'
+};
+
 ReactDOM.render(
-  <Counter />,                // 顶层组件
+  <Greeting for='Mark' />,                // 顶层组件
   document.getElementById('root')  // 应用最高层的HTML元素
 );
